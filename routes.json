@@ -68,5 +68,15 @@
 		"path": "/delegates",
 		"method": "put",
 		"handler": "blockchain.delegates.addDelegates"
+	},
+	{
+		"path": "/projects",
+		"method": "put",
+		"handler": "contracts.project.add"
+	},
+	{
+		"path": "/projects",
+		"method": "get",
+		"handler": "contracts.project.list"
 	}
 ]
