@@ -73,9 +73,9 @@ Vote.prototype.undo = function (trs, sender, cb, scope) {
 	if (projectVotes[trs.asset.vote.project]) {
 		projectVotes[trs.asset.vote.project]--;
 	}
-	modules.blockchain.accounts.mergeAccountAndGet({
+	modules.blockchain.accounts.undoMerging({
 		address: sender.address,
-		balance: {"POINTS": BURN_POINTS}
+		balance: {"POINTS": -BURN_POINTS}
 	}, cb, scope);
 }
 
@@ -101,9 +101,9 @@ Vote.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 Vote.prototype.undoUnconfirmed = function (trs, sender, cb, scope) {
 	var voteKey = sender.address + ':' + trs.asset.vote.project;
 	delete votedSet[voteKey];
-	modules.blockchain.accounts.mergeAccountAndGet({
+	modules.blockchain.accounts.undoMerging({
 		address: sender.address,
-		u_balance: { "POINTS": BURN_POINTS }
+		u_balance: { "POINTS": -BURN_POINTS }
 	}, cb, scope);
 }
 

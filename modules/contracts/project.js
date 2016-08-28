@@ -69,9 +69,9 @@ Project.prototype.apply = function (trs, sender, cb, scope) {
 }
 
 Project.prototype.undo = function (trs, sender, cb, scope) {
-	modules.blockchain.accounts.mergeAccountAndGet({
+	modules.blockchain.accounts.undoMerging({
 		address: sender.address,
-		balance: {"POINTS": BURN_POINTS}
+		balance: {"POINTS": -BURN_POINTS}
 	}, cb, scope);
 }
 
@@ -95,9 +95,9 @@ Project.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 
 Project.prototype.undoUnconfirmed = function (trs, sender, cb, scope) {
 	delete private.uProjects[trs.asset.project.name];
-	modules.blockchain.accounts.mergeAccountAndGet({
+	modules.blockchain.accounts.undoMerging({
 		address: sender.address,
-		u_balance: { "POINTS": BURN_POINTS }
+		u_balance: { "POINTS": -BURN_POINTS }
 	}, cb, scope);
 }
 
