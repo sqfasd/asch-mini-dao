@@ -179,8 +179,8 @@ Project.prototype.list = function (cb, query) {
 	var condition = {
 		type: TransactionTypes.PROJECT
 	};
-	if (query.senderId) {
-		condition.senderId = query.senderId;
+	if (query.ownerId) {
+		condition.senderId = query.ownerId;
 	}
 	modules.api.sql.select({
 		table: "transactions",
