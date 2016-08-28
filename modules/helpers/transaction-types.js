@@ -3,5 +3,6 @@ module.exports = {
   "OUT_TRANSFER": 1,
   "DELEGATE": 2,
   "WITHDRAWAL": 3,
-  "PROJECT": 4
+  "PROJECT": 4,
+  "VOTE": 5
 }

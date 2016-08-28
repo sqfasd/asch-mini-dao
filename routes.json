@@ -78,5 +78,10 @@
 		"path": "/projects",
 		"method": "get",
 		"handler": "contracts.project.list"
+	},
+	{
+		"path": "/votes",
+		"method": "put",
+		"handler": "contracts.vote.add"
 	}
 ]

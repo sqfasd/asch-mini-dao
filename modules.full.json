@@ -27,5 +27,6 @@
   "contracts/outsidetransfer": "./modules/contracts/outsidetransfer.js",
   "contracts/delegates": "./modules/contracts/delegates.js",
   "contracts/withdrawaltransfer": "./modules/contracts/withdrawaltransfer.js",
-  "contracts/project": "./modules/contracts/project.js"
+  "contracts/project": "./modules/contracts/project.js",
+  "contracts/vote": "./modules/contracts/vote.js"
 }

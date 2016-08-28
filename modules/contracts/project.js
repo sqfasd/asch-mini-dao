@@ -80,7 +80,7 @@ Project.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 		return setImmediate(cb, "Account does not have enough POINTS: " + trs.id);
 	}
 	if (private.uProjects[trs.asset.project.name]){
-		return setImmediate(cb, "Project already exists: " + trs.id);
+		return setImmediate(cb, "Project already exists");
 	}
 	modules.blockchain.accounts.mergeAccountAndGet({
 		address: sender.address,
@@ -209,6 +209,9 @@ Project.prototype.list = function (cb, query) {
 			return cb(err.toString());
 		}
 
+		projects.forEach(function (p) {
+			p.votes = modules.contracts.vote.getVotes(p.name);
+		});
 		return cb(null, {
 			projects: projects
 		})
