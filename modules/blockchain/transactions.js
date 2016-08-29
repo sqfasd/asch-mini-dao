@@ -210,13 +210,6 @@ Transactions.prototype.getTransactions = function (cb, query) {
 	self.getUnconfirmedTransactionList(false, cb)
 }
 
-Transactions.prototype.getTransaction = function (cb, query) {
-	modules.api.sql.select(extend({}, library.scheme.selector["transactions"], {
-		condition: {"t.id": query.id},
-		fields: library.scheme.aliasedFields
-	}), library.scheme.types, cb);
-}
-
 Transactions.prototype.onMessage = function (query) {
 	switch (query.topic) {
 		case "transaction":
